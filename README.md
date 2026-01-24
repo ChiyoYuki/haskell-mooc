@@ -1,3 +1,21 @@
+# Haskell MOOC 简体中文翻译版
+
+本仓库内容由[千代有希](https://github.com/ChiyoYuki)个人翻译。
+个人英语水准属实不高，如有翻译不当之处甚是抱歉。
+欢迎提 issue 或是 PR 完善翻译，对您的支持与帮助深表感谢。
+
+## 跳转链接
+
+[课程第一部分](http://haskell-mooc.chiyo.uk/part1-zh_cn.html)
+
+[课程第二部分](http://haskell-mooc.chiyo.uk/part2-zh_cn.html)
+
+> 另注：中文翻译版存于本仓库 `cn` 分支，本仓库 `master` 分支为个人练习用，敬请留意。
+
+以下为原仓库 README.md
+
+---
+
 # Haskell MOOC
 
 <p align="center"><img alt="Course logo" src="img/haskell-mooc-logo.svg" width="400" align="center"></p>
@@ -61,5 +79,6 @@ Don't forget to run `stack build` again after changing branches.
 ## Reporting errors
 
 If you notice an error in these materials, you can report it via
+
 - an issue or pull request in this repository (see [CONTRIBUTING.md](CONTRIBUTING.md))
 - the course [channel on Telegram](https://t.me/haskell_mooc_fi)
