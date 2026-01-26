@@ -12,6 +12,19 @@
 
 > 另注：中文翻译版存于本仓库 `cn` 分支，本仓库 `master` 分支为个人练习用，敬请留意。
 
+## 名词对照表
+
+|原文|译文|
+|---|---|
+|functional|泛函、函数式|
+|lazy|惰性的|
+|algebraic datatype|代数数据类型|
+|list|列表|
+|parameterized|参数化的|
+|type class|类型类|
+|constructor|构造子|
+|list comprehension|列表推导式|
+
 以下为原仓库 README.md
 
 ---

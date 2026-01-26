@@ -96,9 +96,9 @@ class="toc-section-number">1.2</span> 看下这些</a></li>
 <li><a href="#haskell" id="toc-haskell"><span
 class="toc-section-number">1.3</span> Haskell</a></li>
 <li><a href="#running-haskell" id="toc-running-haskell"><span
-class="toc-section-number">1.4</span> Running Haskell</a></li>
+class="toc-section-number">1.4</span> 运行 Haskell</a></li>
 <li><a href="#lets-start" id="toc-lets-start"><span
-class="toc-section-number">1.5</span> Let’s Start!</a></li>
+class="toc-section-number">1.5</span> 我们开始吧！</a></li>
 <li><a href="#expressions-and-types"
 id="toc-expressions-and-types"><span
 class="toc-section-number">1.6</span> Expressions and Types</a></li>
@@ -339,10 +339,10 @@ Lång (University of Helsinki)</p>
 class="header-section-number">1</span> Lecture 1: …要开始了呦</h1>
 <h2 data-number="1.1" id="about-the-course"><span
 class="header-section-number">1.1</span> 关于本课程</h2>
-<p>这是一门有关函数式编程的在线课程，并使用 Haskell 程序语言。
+<p>这是一门有关泛函编程的在线课程，并使用 Haskell 程序语言。
 你可以按照自己的节奏学习。所有资料与练习均可公开访问。</p>
-<p>本课程面向希望学习函数式编程的初学者，
-但也面向已经对函数式编程有所了解、想要专门学习 Haskell 的人。
+<p>本课程面向希望学习泛函编程的初学者，
+但也面向已经对泛函编程有所了解、想要专门学习 Haskell 的人。
 本课程不要求前置知识，
 但事先了解至少一门程序语言的话会便于理解本课程。<p>
 <p>完成练习部分需要了解如何使用命令行，
@@ -350,7 +350,7 @@ class="header-section-number">1.1</span> 关于本课程</h2>
 <p>本课程共有两部分，这是第一部分。
 第一部分包含基础的 Haskell 语法与特性。
 你将学习递归、高阶函数、代数数据类型与一些 Haskell 的进阶特性。
-然而，第一部分将围绕纯粹的函数式编程展开，不讨论副作用。
+然而，第一部分将围绕纯泛函编程展开，不讨论副作用。
 I/O 与 Monads 会在第二部分进行介绍。</p>
 <p>课程的第一部分被分为了 8 个章节。
 各个章节大致等长，但某些章节含有更多的内容。
@@ -371,7 +371,7 @@ Haskell</a> - 一个较旧且较短的教程，但仍值得一读</li>
 <li><a href="http://learnyouahaskell.com/chapters">Learn You a Haskell
 for Great Good!</a> – 一个不错的免费 Haskell 简介</li>
 <li><a href="https://www.cs.yale.edu/homes/hudak/SOE/index.htm">The
-Haskell School of Expression</a> - 略旧但仍有价值的函数式编程简介</li>
+Haskell School of Expression</a> - 略旧但仍有价值的泛函编程简介</li>
 <li><a href="https://haskellbook.com/">Haskell Programming from First
 Principles</a> - 关于 Haskell 的 59 美元电子书，较长</li>
 <li><a href="https://libera.chat/">libera.chat</a> 上的 
@@ -380,8 +380,8 @@ IRC 频道 <code>#haskell</code> 对于初学者而言是个好地方</li>
 </ul>
 <h2 data-number="1.3" id="haskell"><span
 class="header-section-number">1.3</span> Haskell</h2>
-<p>Haskell 有这些性质</p>
-<p><strong>函数式</strong> – 程序的基本构建模块是函数。
+<p>Haskell 有如下性质</p>
+<p><strong>泛函</strong> – 程序的基本构建模块是函数。
 函数的返回值与参数也可以是函数。
 此外， Haskell 中唯一的循环结构是递归。</p>
 <p><strong>纯粹</strong> - Haskell 函数是纯粹的，
@@ -415,14 +415,14 @@ Haskell 拥有通过垃圾回收实现的自动内存管理。
 主要通过交互式 GHCi 环境使用 Haskell，
 但 Haskell 是一门编译型语言。
 Haskell 程序可以被编译为及其高效的二进制文件，
-并且 GHC 编译器非常善于将函数式代码优化为高性能的机器码。</p>
+并且 GHC 编译器非常善于将泛函代码优化为高性能的机器码。</p>
 <p>在本课程中，你将学习这些术语在实践中的含义。
 请不必担心，即便有些术语现在听起来略显抽象。</p>
 <p>另请参阅： <a
 href="https://wiki.haskell.org/Functional_programming">The Haskell Wiki
 page on Functional programming</a>.</p>
 <h3 data-number="1.3.1" id="features"><span
-class="header-section-number">1.3.1</span> Features</h3>
+class="header-section-number">1.3.1</span> 特性</h3>
 <p>这里展示了一些 Haskell 的炫酷特性：</p>
 <p><strong>高阶函数</strong> – 函数可以将函数作为参数：</p>
 <div class="sourceCode" id="cb1"><pre
@@ -436,127 +436,113 @@ class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a 
 例如，这会将列表中的所有元素乘以 3 ：</p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span> (<span class="op">*</span><span class="dv">3</span>) [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span></code></pre></div>
-<p><strong>代数数据类型</strong> – a syntax for defining
-datatypes that can contain a number of different cases:</p>
+<p><strong>代数数据类型</strong> – 一种定义包含不同情形数据类型的语法：</p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">Shape</span> <span class="ot">=</span> <span class="dt">Point</span> <span class="op">|</span> <span class="dt">Rectangle</span> <span class="dt">Double</span> <span class="dt">Double</span> <span class="op">|</span> <span class="dt">Circle</span> <span class="dt">Double</span></span></code></pre></div>
-<p>Now the type <code>Shape</code> can have values like
-<code>Point</code>, <code>Rectangle 3 6</code> and
+<p>现在 <code>Shape</code> 类型可以拥有值
+<code>Point</code>, <code>Rectangle 3 6</code> 与
 <code>Circle 5</code></p>
-<p><strong>模式匹配</strong> – defining functions based on cases
-that correspond to your data definitions:</p>
+<p><strong>模式匹配</strong> – 基于与数据定义相一致的情况来定义函数：</p>
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>area <span class="dt">Point</span> <span class="ot">=</span> <span class="dv">0</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>area (<span class="dt">Rectangle</span> width height) <span class="ot">=</span> width <span class="op">*</span> height</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>area (<span class="dt">Circle</span> radius) <span class="ot">=</span> <span class="fu">pi</span> <span class="op">*</span> radius <span class="op">*</span> radius</span></code></pre></div>
-<p><strong>列表</strong> – Unlike many languages, Haskell has a concise
-built-in syntax for lists. Lists can be built from other lists using
-<em>list comprehensions</em>. Here’s a snippet that generates names of
-even length from a set of options for first and last names:</p>
+<p><strong>列表</strong> – 不像许多语言那样， Haskell 有一个简洁的内建列表语法。
+列表可以由其他列表通过<em>列表推导式</em>构建。
+这是一段可以从一组姓氏与名字中生成偶数长度字符名字的代码：</p>
 <div class="sourceCode" id="cb6"><pre
 class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>[whole <span class="op">|</span> first <span class="ot">&lt;-</span> [<span class="st">&quot;Eva&quot;</span>, <span class="st">&quot;Mike&quot;</span>],</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>         <span class="fu">last</span> <span class="ot">&lt;-</span> [<span class="st">&quot;Smith&quot;</span>, <span class="st">&quot;Wood&quot;</span>, <span class="st">&quot;Odd&quot;</span>],</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>         <span class="kw">let</span> whole <span class="ot">=</span> first <span class="op">++</span> <span class="fu">last</span>,</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">even</span> (<span class="fu">length</span> whole)]</span></code></pre></div>
-<p>This results in <code>["EvaSmith","EvaOdd","MikeWood"]</code>. Thanks
-to the laziness of Haskell, we can even create so-called <em>infinite
-lists</em>:</p>
+<p>结果为 <code>["EvaSmith","EvaOdd","MikeWood"]</code> 。
+多亏了 Haskell 的惰性性质，我们可以创建所谓的<em>无穷列表</em>：
 <div class="sourceCode" id="cb7"><pre
 class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>primes <span class="ot">=</span> [ n <span class="op">|</span> n <span class="ot">&lt;-</span> [<span class="dv">2</span><span class="op">..</span>] , <span class="fu">all</span> (\k <span class="ot">-&gt;</span> n <span class="ot">`mod`</span> k <span class="op">/=</span> <span class="dv">0</span>) [<span class="dv">2</span><span class="op">..</span>n <span class="ot">`div`</span> <span class="dv">2</span>] ]</span></code></pre></div>
-<p>The first ten prime numbers can be then obtained by evaluating</p>
+<p>前十个质数可由计算如下代码获得</p>
 <div class="sourceCode" id="cb8"><pre
 class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">take</span> <span class="dv">10</span> primes</span></code></pre></div>
-<p>This evaluates to <code>[2,3,5,7,11,13,17,19,23,29]</code>.</p>
-<p><strong>参数化类型</strong> – you can define types that are
-parameterized by other types. For example <code>[Int]</code> is a list
-of <code>Int</code>s and <code>[Bool]</code> is a list of booleans. You
-can define typed functions that work on all kinds of lists, for example
-<code>reverse</code> has the type <code>[a] -&gt; [a]</code> which means
-it takes a list containing any type <code>a</code>, and returns a list
-of the same type.</p>
-<p><strong>类型类</strong> – another form of polymorphism where
-you can give a function a different implementation depending on the
-arguments’ types. For example the <code>Show</code> type class defines
-the function <code>show</code> that can convert values of various types
-to strings. The <code>Num</code> type class defines arithmetic operators
-like <code>+</code> that work on all number types (<code>Int</code>,
-<code>Double</code>, <code>Complex</code>, …).</p>
+<p>计算值为 <code>[2,3,5,7,11,13,17,19,23,29]</code>。</p>
+<p><strong>参数化类型</strong> – 你可以定义由其他类型所参数化的类型。
+例如 <code>[Int]</code> 是一个由 <code>Int</code> 构成的列表，
+而 <code>[Bool]</code> 是一个布尔值列表。
+你可以定义适用于各种列表的类型化函数，
+例如 <code>reverse</code> 具有类型 <code>[a] -&gt; [a]</code> ，
+这意味着它接受一个包含任意类型 <code>a</code> 的列表作为输入，
+并返回一个同样类型的列表。</p>
+<p><strong>类型类</strong> – 多态性的另一种形式，
+你可以根据参数类型为函数提供不同的实现。
+例如 <code>Show</code> 类型类定义了函数 <code>show</code> ，
+它可以将多种类型的值转换为字符串。 
+<code>Num</code> 类型类定义了像 <code>+</code> 这样适用于所有数字类型
+（<code>Int</code>, <code>Double</code>, <code>Complex</code>, ……）
+的算数运算符。</p>
 <h3 data-number="1.3.2" id="some-history"><span
-class="header-section-number">1.3.2</span> Some History</h3>
-<p>A brief timeline of Haskell:</p>
+class="header-section-number">1.3.2</span> 一些历史</h3>
+<p>Haskell 简要时间线：</p>
 <ul>
-<li>1930s: Lambda Calculus</li>
-<li>1950s-1970s: Lisp, Pattern Matching, Scheme, ML</li>
+<li>1930s: Lambda 演算</li>
+<li>1950s-1970s: Lisp, 模式匹配, Scheme, ML</li>
 <li>1978 John Backus: <a
 href="https://dl.acm.org/doi/pdf/10.1145/359576.359579">Can programming
 be liberated from the von Neumann style?</a></li>
-<li>1987 A decision was made to unify the field of pure functional
-languages</li>
+<li>1987 决定统一纯泛函语言领域</li>
 <li>1990 Haskell 1.0</li>
 <li>1991 Haskell 1.1 (let-syntax, sections)</li>
 <li>1992 Haskell 1.2, GHC</li>
-<li>1996 Haskell 1.3 (Monads, do-syntax, type system improvements)</li>
+<li>1996 Haskell 1.3 (Monads, do-syntax, 类型系统改进)</li>
 <li>1999 Haskell 98</li>
-<li>2000’s: GHC development, many extensions to the language</li>
+<li>2000’s: GHC 开发, 语言的诸多扩展</li>
 <li>2009 <a href="https://www.haskell.org/onlinereport/haskell2010/">The
 Haskell 2010 standard</a></li>
-<li>2010’s: GHC development, Haskell Platform, Haskell Stack</li>
+<li>2010’s: GHC 开发, Haskell 平台, Haskell Stack</li>
 </ul>
-<p>The word ‘haskel’ means wisdom in Hebrew, but the name of the Haskell
-programming language comes from the logician Haskell Curry. The name
-Haskell comes from the Old Norse words áss (god) and ketill
-(helmet).</p>
+<p>单词 ‘haskel’ 在希伯来语中的含义是“智慧”，
+但 Haskell 程序语言的名称来源于逻辑学家 Haskell Curry。
+Haskell 这个名字源自于古挪威单词 áss （神明）与 ketill （头盔）。</p>
 <h3 data-number="1.3.3" id="uses-of-haskell"><span
-class="header-section-number">1.3.3</span> Uses of Haskell</h3>
-<p>Here are some examples of software projects that were written in
-Haskell.</p>
+class="header-section-number">1.3.3</span> Haskell 的应用</h3>
+<p>这是一些使用 Hasekll 编写的软件项目示例。</p>
 <ul>
-<li>The <a href="https://en.wikipedia.org/wiki/Darcs">Darcs</a>
-distributed version control system</li>
-<li>The <a
-href="https://engineering.fb.com/security/fighting-spam-with-haskell/">Sigma
-spam-prevention tool at Facebook</a></li>
-<li>The implementations of the <a
-href="https://www.purescript.org/">PureScript</a> and <a
-href="https://elm-lang.org/">Elm</a> programming languages are written
-in Haskell</li>
-<li>The <a href="https://pandoc.org/">Pandoc</a> tool for converting
-between different document formats – it’s also used to produce this
-course material</li>
-<li>The <a href="https://postgrest.org/">PostgREST</a> server that
-exposes a HTTP REST API for a PostgreSQL database</li>
-<li>Functional consulting companies like <a
-href="https://galois.com/">Galois</a> and <a
-href="https://well-typed.com/">Well-Typed</a> have a long history of
-developing critical systems for clients in Haskell</li>
+<li><a href="https://en.wikipedia.org/wiki/Darcs">Darcs</a>
+分布式版本控制系统</li>
+<li><a href="https://engineering.fb.com/security/fighting-spam-with-haskell/">
+Facebook 上的 Sigma 垃圾邮件预防工具</a></li>
+<li><a href="https://www.purescript.org/">PureScript</a> 与 
+<a href="https://elm-lang.org/">Elm</a> 的实现由 Haskell 编写</li>
+<li><a href="https://pandoc.org/">Pandoc</a> ，
+用于在不同文档格式之间转换的工具——它也被用于制作课程资料</li>
+<li><a href="https://postgrest.org/">PostgREST</a> 服务器，
+为 PostgreSQL 数据库提供 HTTP REST API</li>
+<li>像 <a href="https://galois.com/">Galois</a> 与 <a
+href="https://well-typed.com/">Well-Typed</a> 这样的函数式技术咨询公司
+在为用户使用 Haskell 开发关键系统方面有着悠久的历史</li>
 </ul>
-<p>See <a href="https://wiki.haskell.org/Haskell_in_industry">The
-Haskell Wiki</a> and <a
+<p>阅读 <a href="https://wiki.haskell.org/Haskell_in_industry">The
+Haskell Wiki</a> 与 <a
 href="https://serokell.io/blog/top-software-written-in-haskell">this
-blog post</a> for more!</p>
+blog post</a> 以了解更多！</p>
 <h2 data-number="1.4" id="running-haskell"><span
-class="header-section-number">1.4</span> Running Haskell</h2>
-<p>The easiest way to get Haskell is to install the <code>stack</code>
-tool, see <a href="https://haskellstack.org"
-class="uri">https://haskellstack.org</a>. The exercises on this course
-are intended to work with Stack, so you should use it for now.</p>
-<p>By the way, if you’re interested in what Stack is, and how it relates
-to other Haskell tools like Cabal and GHC, <a
-href="https://www.quora.com/What-is-the-difference-between-Cabal-and-Stack-in-Haskell-projects-Which-one-do-you-recommend-and-why">read
-more here</a> or <a
-href="https://docs.haskellstack.org/en/stable/faq/">here</a>. We’ll get
-back to Haskell packages and using them in detail in part 2 of the
-course.</p>
-<p>For now, after installing Stack, just run <code>stack ghci</code> to
-get an interactive Haskell environment.</p>
-<p><strong>Note!</strong> GHC 8.10.7 has a GHCi bug that makes editing
-lines impossible on ARM-based systems. As a workaround, use
-<code>TERM=dumb stack ghci</code>. More info <a
-href="https://gitlab.haskell.org/ghc/ghc/-/issues/20022">here</a>.</p>
+class="header-section-number">1.4</span> 运行 Haskell</h2>
+<p>最简单获取 Haskell 的方式是安装 <code>stack</code> 工具，
+阅读 <a href="https://haskellstack.org"
+class="uri">https://haskellstack.org</a> 。
+本课程的练习针对使用 Stack 而设计，所以你应当现在就用 Stack 。</p>
+<p>顺带一提，如果你对 Stack 是什么，
+它与 Cabal、GHC 等其他 Haskell 工具间的关系感兴趣， <a
+href="https://www.quora.com/What-is-the-difference-between-Cabal-and-Stack-in-Haskell-projects-Which-one-do-you-recommend-and-why">
+请于此处</a> 或是 <a
+href="https://docs.haskellstack.org/en/stable/faq/">此处</a>阅读更多信息。
+我们将在本课程第二部分回顾 Haskell 包及其详细使用。</p>
+<p>眼下，安装好 Stack 后，运行 <code>stack ghci</code> 
+以获取一个交互式 Haskell 环境。</p>
+<p><strong>注意！</strong> GHC 8.10.7 有个 GHCi 漏洞
+会导致在 ARM 架构系统上无法编辑行。作为解决办法，请使用
+<code>TERM=dumb stack ghci</code> 。更多信息详见 <a
+href="https://gitlab.haskell.org/ghc/ghc/-/issues/20022">此处</a>。</p>
 <h2 data-number="1.5" id="lets-start"><span
-class="header-section-number">1.5</span> Let’s Start!</h2>
-<p>GHCi is the interactive Haskell interpreter. Here’s an example
-session:</p>
+class="header-section-number">1.5</span> 我们开始吧！</h2>
+<p>GHCi 是交互式 Haskell 解释器。这是一个示例会话：</p>
 <pre><code>$ stack ghci
 GHCi, version 9.2.8: https://www.haskell.org/ghc/  :? for help
 Prelude&gt; 1+1
@@ -575,48 +561,45 @@ Prelude&gt; :type tail
 tail :: [a] -&gt; [a]
 Prelude&gt; :quit
 Leaving GHCi.</code></pre>
-<p>By the way, the first time you run <code>stack ghci</code> it will
-download GHC and some libraries, so don’t worry if you see some output
-and have to wait for a while before getting the <code>Prelude&gt;</code>
-prompt.</p>
-<p>Let’s walk through this. Don’t worry if you don’t understand things
-yet, this is just a first brush with expressions and types.</p>
+<p>顺带一提，你第一次运行 <code>stack ghci</code> 时，
+它会下载 GHC 与一些库，所以如果你看见一些输出内容，请不要担心，
+需要等待一段时间才能收到 <code>Prelude&gt;</code> 提示。</p>
+<p>让我们分析一下。如果你暂时还不理解，不要担心，
+这仅是对表达式与类型的初步了解。</p>
 <pre><code>Prelude&gt; 1+1
 2</code></pre>
-<p>The <code>Prelude&gt;</code> is the GHCi prompt. It indicates we can
-use the functions from the Haskell base library called Prelude. We
-evaluate 1 plus 1, and the result is 2.</p>
+<p><code>Prelude&gt;</code> 是 GHCi 提示。
+它表示我们可以使用 Haskell 基础库 Prelude 中的函数。
+我们计算 1 加 1 ，其结果为 2 。</p>
 <pre><code>Prelude&gt; &quot;asdf&quot;
 &quot;asdf&quot;</code></pre>
-<p>Here we evaluate a string literal, and the result is the same
-string.</p>
+<p>这里我们计算一个字符串字面量，其结果为相同的字符串。</p>
 <pre><code>Prelude&gt; reverse &quot;asdf&quot;
 &quot;fdsa&quot;</code></pre>
-<p>Here we compute the reverse of a string by applying the function
-<code>reverse</code> to the value <code>"asdf"</code>.</p>
+<p>这里我们通过将 <code>reverse</code> 函数
+应用到值 <code>"asdf"</code> 上来计算字符串的反转。</p>
 <pre><code>Prelude&gt; :type &quot;asdf&quot;
 &quot;asdf&quot; :: [Char]</code></pre>
-<p>In addition to evaluating expressions we can also ask for their type
-with the <code>:type</code> (abbreviated <code>:t</code>) GHCi command.
-The type of <code>"asdf"</code> is a list of characters. Commands that
-start with <code>:</code> are part of the user interface of GHCi, not
-part of the Haskell language.</p>
+<p>除了计算表达式外，我们还可以使用
+<code>:type</code> （缩写为 <code>:t</code>） GHCi 命令询问其类型。 
+<code>"asdf"</code> 的类型为字符列表。 
+以 <code>:</code> 开头的命令是 GHCi 用户界面的一部分，
+而不是 Haskell 语言的一部分。</p>
 <pre><code>Prelude&gt; tail &quot;asdf&quot;
 &quot;sdf&quot;
 Prelude&gt; :t tail &quot;asdf&quot;
 tail &quot;asdf&quot; :: [Char]</code></pre>
-<p>The <code>tail</code> function works on lists and returns all except
-the first element of the list. Here we see <code>tail</code> applied to
-<code>"asdf"</code>. We also check the type of the expression, and it is
-a list of characters, as expected.</p>
+<p><code>tail</code> 函数适用于列表，
+并返回除第一个元素外所有剩余元素构成的列表。 
+这里我们将 <code>tail</code> 应用于 <code>"asdf"</code>。 
+我们也可以检查表达式的类型，它的类型为字符列表，正如预期那样。</p>
 <pre><code>Prelude&gt; :t tail
 tail :: [a] -&gt; [a]</code></pre>
-<p>Finally, here’s the type of the <code>tail</code> function. It takes
-a list of any type as an argument, and returns a list of the same
-type.</p>
+<p>最后，这是 <code>tail</code> 函数的类型。
+它接受一个任意类型的列表作为参数，并返回一个相同类型的列表。</p>
 <pre><code>Prelude&gt; :quit
 Leaving GHCi.</code></pre>
-<p>That’s how you quit GHCi.</p>
+<p>这是退出 GHCi 的方式。</p>
 <h2 data-number="1.6" id="expressions-and-types"><span
 class="header-section-number">1.6</span> Expressions and Types</h2>
 <p>Just like we saw in the GHCi example above, <em>expressions</em> and
