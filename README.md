@@ -24,6 +24,9 @@
 |type class|类型类|
 |constructor|构造子|
 |list comprehension|列表推导式|
+|statement|语句|
+|equation|方程|
+|monad|单子|
 
 以下为原仓库 README.md
 

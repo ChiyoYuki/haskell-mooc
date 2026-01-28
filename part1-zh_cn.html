@@ -101,11 +101,10 @@ class="toc-section-number">1.4</span> 运行 Haskell</a></li>
 class="toc-section-number">1.5</span> 我们开始吧！</a></li>
 <li><a href="#expressions-and-types"
 id="toc-expressions-and-types"><span
-class="toc-section-number">1.6</span> Expressions and Types</a></li>
+class="toc-section-number">1.6</span> 表达式与类型</a></li>
 <li><a href="#the-structure-of-a-haskell-program"
 id="toc-the-structure-of-a-haskell-program"><span
-class="toc-section-number">1.7</span> The Structure of a Haskell
-Program</a></li>
+class="toc-section-number">1.7</span> 一个 Haskell 程序的结构</a></li>
 <li><a href="#working-with-examples"
 id="toc-working-with-examples"><span
 class="toc-section-number">1.8</span> Working with Examples</a></li>
@@ -124,7 +123,7 @@ class="toc-section-number">1.12</span> Quiz</a></li>
 id="toc-working-on-the-exercises"><span
 class="toc-section-number">1.13</span> Working on the Exercises</a></li>
 <li><a href="#exercises" id="toc-exercises"><span
-class="toc-section-number">1.14</span> Exercises</a></li>
+class="toc-section-number">1.14</span> 练习</a></li>
 </ul></li>
 <li><a href="#lecture-2-either-you-die-a-hero"
 id="toc-lecture-2-either-you-die-a-hero"><span
@@ -351,7 +350,7 @@ class="header-section-number">1.1</span> 关于本课程</h2>
 第一部分包含基础的 Haskell 语法与特性。
 你将学习递归、高阶函数、代数数据类型与一些 Haskell 的进阶特性。
 然而，第一部分将围绕纯泛函编程展开，不讨论副作用。
-I/O 与 Monads 会在第二部分进行介绍。</p>
+I/O 与单子会在第二部分进行介绍。</p>
 <p>课程的第一部分被分为了 8 个章节。
 各个章节大致等长，但某些章节含有更多的内容。
 每个章节以 10-30 道围绕本章节主题的小型编程练习收尾。</p>
@@ -488,9 +487,9 @@ href="https://dl.acm.org/doi/pdf/10.1145/359576.359579">Can programming
 be liberated from the von Neumann style?</a></li>
 <li>1987 决定统一纯泛函语言领域</li>
 <li>1990 Haskell 1.0</li>
-<li>1991 Haskell 1.1 (let-syntax, sections)</li>
+<li>1991 Haskell 1.1 (let-语法，sections)</li>
 <li>1992 Haskell 1.2, GHC</li>
-<li>1996 Haskell 1.3 (Monads, do-syntax, 类型系统改进)</li>
+<li>1996 Haskell 1.3 (单子，do-语法，类型系统改进)</li>
 <li>1999 Haskell 98</li>
 <li>2000’s: GHC 开发, 语言的诸多扩展</li>
 <li>2009 <a href="https://www.haskell.org/onlinereport/haskell2010/">The
@@ -601,20 +600,20 @@ tail :: [a] -&gt; [a]</code></pre>
 Leaving GHCi.</code></pre>
 <p>这是退出 GHCi 的方式。</p>
 <h2 data-number="1.6" id="expressions-and-types"><span
-class="header-section-number">1.6</span> Expressions and Types</h2>
-<p>Just like we saw in the GHCi example above, <em>expressions</em> and
-<em>types</em> are the bread and butter of Haskell. In fact, almost
-everything in a Haskell program is an expression. In particular, there
-are no <em>statements</em> like in Python, Java or C.</p>
-<p>An expression has a <em>value</em> and a <em>type</em>. We write an
-expression and its type like this: <code>expression :: type</code>. Here
-are some examples:</p>
+class="header-section-number">1.6</span> 表达式与类型</h2>
+<p>正如我们在上文的 GHCi 示例中所见的那样，
+<em>表达式</em>与<em>类型</em>是 Haskell 的基础。
+事实上，在一个 Haskell 程序中，几乎一切事物都是一个表达式。
+特别是不存在像在 Python, Java 或 C 中那样的<em>语句（statments）</em>。</p>
+<p>一个表达式拥有一个<em>值</em>与一个<em>类型</em>。
+我们像这样编写一个表达式及其类型：<code>表达式 :: 类型</code>。
+一些示例：</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Expression</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Value</th>
+<th style="text-align: left;">表达式</th>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">值</th>
 </tr>
 </thead>
 <tbody>
@@ -636,11 +635,9 @@ are some examples:</p>
 </tbody>
 </table>
 <h3 data-number="1.6.1" id="syntax-of-expressions"><span
-class="header-section-number">1.6.1</span> Syntax of Expressions</h3>
-<p>Expressions consist of functions <em>applied</em> to arguments.
-Functions are <em>applied</em> (i.e. called) by placing the arguments
-after the name of the function – there is no special syntax for a
-function call.</p>
+class="header-section-number">1.6.1</span> 表达式的语法</h3>
+<p>表达式由<em>应用于</em>参数的函数组成。
+函数通过将参数置于函数名后来<em>应用</em>（即调用）——函数调用没有特殊语法。</p>
 <table>
 <thead>
 <tr class="header">
@@ -659,8 +656,7 @@ function call.</p>
 </tr>
 </tbody>
 </table>
-<p>Parentheses can be used to <em>group</em> expressions (just like in
-math and other languages).</p>
+<p>括号可以用于将表达式<em>分组</em>（就像在数学或是其他语言中那样）。</p>
 <table>
 <thead>
 <tr class="header">
@@ -687,10 +683,10 @@ math and other languages).</p>
 </tr>
 </tbody>
 </table>
-<p>Some function names are made special characters and they are used as
-operators: between their arguments instead of before them. Function
-calls <em>bind tighter</em> than operators, just like multiplication
-binds tighter than addition.</p>
+<p>一些函数名被制成特殊字符，并用作为运算符：
+函数名置于它的参数中间而非参数前。
+函数调用比运算符<em>优先级更高</em>，
+就像乘法优先级高于加法那样。</p>
 <table>
 <thead>
 <tr class="header">
@@ -713,21 +709,21 @@ binds tighter than addition.</p>
 </tr>
 </tbody>
 </table>
-<p>PS. in Haskell, function application <em>associates left</em>, that
-is, <code>f g x y</code> is actually the same as
-<code>(((f g) x) y)</code>. We’ll get back to this topic later. For now
-you can just think that <code>f g x y</code> is <code>f</code> applied
-to the arguments <code>g</code>, <code>x</code> and <code>y</code>.</p>
+<p>注：在 Haskell 中，函数应用是<em>左结合的</em>，
+这意味着， <code>f g x y</code> 事实上等价于 <code>(((f g) x) y)</code>。
+我们稍后再回到这个话题。
+现在你只需要认为 <code>f g x y</code> 是 <code>f</code> 
+应用于参数 <code>g</code>， <code>x</code> 与 <code>y</code>。</p>
 <h3 data-number="1.6.2" id="syntax-of-types"><span
-class="header-section-number">1.6.2</span> Syntax of Types</h3>
-<p>Here are some basic types of Haskell to get you started.</p>
+class="header-section-number">1.6.2</span> 类型的语法</h3>
+<p>这是一些 Haskell 中基本类型示例以便于你入门。</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Literals</th>
-<th style="text-align: left;">Use</th>
-<th style="text-align: left;">Operations</th>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">常量</th>
+<th style="text-align: left;">应用</th>
+<th style="text-align: left;">运算符</th>
 </tr>
 </thead>
 <tbody>
@@ -735,7 +731,7 @@ class="header-section-number">1.6.2</span> Syntax of Types</h3>
 <td style="text-align: left;"><code>Int</code></td>
 <td style="text-align: left;"><code>1</code>, <code>2</code>,
 <code>-3</code></td>
-<td style="text-align: left;">Number type (signed, 64bit)</td>
+<td style="text-align: left;">数字类型（有符号，64位）</td>
 <td style="text-align: left;"><code>+</code>, <code>-</code>,
 <code>*</code>, <code>div</code>, <code>mod</code></td>
 </tr>
@@ -743,75 +739,72 @@ class="header-section-number">1.6.2</span> Syntax of Types</h3>
 <td style="text-align: left;"><code>Integer</code></td>
 <td style="text-align: left;"><code>1</code>, <code>-2</code>,
 <code>900000000000000000</code></td>
-<td style="text-align: left;">Unbounded number type</td>
+<td style="text-align: left;">无界数字类型</td>
 <td style="text-align: left;"><code>+</code>, <code>-</code>,
 <code>*</code>, <code>div</code>, <code>mod</code></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>Double</code></td>
 <td style="text-align: left;"><code>0.1</code>, <code>1.2e5</code></td>
-<td style="text-align: left;">Floating point numbers</td>
+<td style="text-align: left;">浮点数</td>
 <td style="text-align: left;"><code>+</code>, <code>-</code>,
 <code>*</code>, <code>/</code>, <code>sqrt</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>Bool</code></td>
 <td style="text-align: left;"><code>True</code>, <code>False</code></td>
-<td style="text-align: left;">Truth values</td>
+<td style="text-align: left;">真值</td>
 <td style="text-align: left;"><code>&amp;&amp;</code>, <code>||</code>,
 <code>not</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>String</code> aka
+<td style="text-align: left;"><code>String</code> 又名
 <code>[Char]</code></td>
 <td style="text-align: left;"><code>"abcd"</code>, <code>""</code></td>
-<td style="text-align: left;">Strings of characters</td>
+<td style="text-align: left;">字符串</td>
 <td style="text-align: left;"><code>reverse</code>, <code>++</code></td>
 </tr>
 </tbody>
 </table>
-<p>As you can see, the names of types in Haskell start with a capital
-letter. Some values like <code>True</code> also start with a capital
-letter, but variables and functions start with a lower case letter
-(<code>reverse</code>, <code>not</code>, <code>x</code>). We’ll get back
-to the meaning of capital letters in Lecture 2.</p>
-<p>Function types are written using the <code>-&gt;</code> syntax:</p>
+<p>正如你所见的那样， Haskell 中的类型名称由一个大写字母开头。
+一些值，像 <code>True</code>， 也由一个大写字母开头，
+但变量与函数由一个小写字母开头
+（<code>reverse</code>，<code>not</code>，<code>x</code>）。
+我们将在 Lecture 2 探讨大写字母的含义</p>
+<p>函数类型通过使用 <code>-&gt;</code> 语法编写：</p>
 <ul>
-<li>A function of one argument:
-<code>argumentType -&gt; returnType</code></li>
-<li>… of two arguments:
-<code>argument1Type -&gt; argument2Type -&gt; returnType</code></li>
-<li>… of three arguments:
-<code>argument1Type -&gt; argument2Type -&gt; argument3Type -&gt; returnType</code></li>
+<li>一个单参数函数：
+<code>参数类型 -&gt; 返回类型</code></li>
+<li>一个双参数函数：
+<code>参数甲类型 -&gt; 参数乙类型 -&gt; 返回类型</code></li>
+<li>一个三参数函数：
+<code>参数甲类型 -&gt; 参数乙类型 -&gt; 参数丙类型 -&gt; 返回类型</code></li>
 </ul>
-<p>Looks a bit weird, right? We’ll get back to this as well.</p>
+<p>译注：不同于函数应用， <code>-&gt;</code> 是右结合的，
+即 <code>X -&gt; Y -&gt; Z</code> 等价于 <code>X -&gt; (Y -&gt; Z)</code> 。</p>
+<p>看起来有些奇怪是吗？我们稍后再讲这些。</p>
 <h3 data-number="1.6.3" id="note-about-misleading-types"><span
-class="header-section-number">1.6.3</span> Note About Misleading
-Types</h3>
-<p>Sometimes, the types you see in GHCi are a bit different than what
-you’d assume. Here are two common cases.</p>
+class="header-section-number">1.6.3</span> 一些易于被误解的类型</h3>
+<p>有时，你在 GHCi 中看到的类型与你所设想的有些许不同。
+以下为两个常见示例。</p>
 <div class="sourceCode" id="cb17"><pre
 class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">Prelude</span><span class="op">&gt;</span> <span class="op">:</span>t <span class="dv">1</span><span class="op">+</span><span class="dv">1</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">+</span><span class="dv">1</span><span class="ot"> ::</span> <span class="dt">Num</span> a <span class="ot">=&gt;</span> a</span></code></pre></div>
-<p>For now, you should read the type <code>Num a =&gt; a</code> as “any
-number type”. In Haskell, number literals are <em>overloaded</em> which
-means that they can be interpreted as any number type
-(e.g. <code>Int</code> or <code>Double</code>). We’ll get back to what
-<code>Num a</code> actually means when we talk about <em>type
-classes</em> later.</p>
+<p>目前，你应该将类型 <code>Num a =&gt; a</code> 理解为“任意数字类型”。
+在 Haskell 中，数字常量被<em>重载</em>了，
+这意味着它们可以被推断为任意数字类型
+（例如 <code>Int</code> 或是 <code>Double</code>）。
+我们将在讨论<em>类型类</em>时回来探讨 <code>Num a</code> 具体意味着什么。</p>
 <div class="sourceCode" id="cb18"><pre
 class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">Prelude</span><span class="op">&gt;</span> <span class="op">:</span>t <span class="st">&quot;asdf&quot;</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;asdf&quot;</span><span class="ot"> ::</span> [<span class="dt">Char</span>]</span></code></pre></div>
-<p>The type <code>String</code> is just an alias for the type
-<code>[Char]</code> which means “list of characters”. We’ll get back to
-lists on the next lecture! In any case, you can use <code>String</code>
-and <code>[Char]</code> interchangeably, but GHCi will mostly use
-<code>[Char]</code> when describing types to you.</p>
+<p>类型 <code>String</code> 只是类型 <code>[Char]</code> 的一个别名，
+意味着“字符的列表”。我们将在下一讲讨论列表！
+在任何情形下，你都可以将 <code>String</code> 与 <code>[Char]</code> 互换使用，
+但 GHCi 在向你描述类型时通常使用 <code>[Char]</code> 。</p>
 <h2 data-number="1.7" id="the-structure-of-a-haskell-program"><span
-class="header-section-number">1.7</span> The Structure of a Haskell
-Program</h2>
-<p>Here’s a simple Haskell program that does some arithmetic and prints
-some values.</p>
+class="header-section-number">1.7</span> 一个 Haskell 程序的结构</h2>
+<p>以下为一个简单的 Haskell 程序，它进行一些算术运算并打印一些值。</p>
 <div class="sourceCode" id="cb19"><pre
 class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">module</span> <span class="dt">Gold</span> <span class="kw">where</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -827,52 +820,47 @@ class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb19-1"><a
 <span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>main <span class="ot">=</span> <span class="kw">do</span></span>
 <span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span> (polynomial phi)</span>
 <span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span> (f phi)</span></code></pre></div>
-<p>If you put this in a file called <code>Gold.hs</code> and run it with
-(for example) <code>stack runhaskell Gold.hs</code>, you should see this
-output</p>
+<p>如果你将这段代码保存为文件 <code>Gold.hs</code> 并通过 
+<code>stack runhaskell Gold.hs</code> 运行它，
+你应当看到如下输出</p>
 <pre><code>0.0
 -1.0</code></pre>
-<p>Let’s walk through the file.</p>
+<p>我们浏览一下这个文件。</p>
 <div class="sourceCode" id="cb21"><pre
 class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">module</span> <span class="dt">Gold</span> <span class="kw">where</span></span></code></pre></div>
-<p>There is one Haskell <em>module</em> per source file. A module
-consists of <em>definitions</em>.</p>
+<p>每个源文件都含有一个 Haskell <em>模块</em>。模块由<em>定义</em>构成。</p>
 <div class="sourceCode" id="cb22"><pre
 class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- The golden ratio</span></span></code></pre></div>
-<p>This is a comment. Comments are not part of the actual program, but
-text for human readers of the program.</p>
+<p>这是一个注释。注释不是实际程序的一部分，而是为程序的人类读者准备的文本。</p>
 <div class="sourceCode" id="cb23"><pre
 class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ot">phi ::</span> <span class="dt">Double</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>phi <span class="ot">=</span> (<span class="fu">sqrt</span> <span class="dv">5</span> <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> <span class="dv">2</span></span></code></pre></div>
-<p>This is a definition of the constant <code>phi</code>, with an
-accompanying <em>type annotation</em> (also known as a <em>type
-signature</em>) <code>phi :: Double</code>. The type annotation means
-that <code>phi</code> has type <code>Double</code>. The line with a
-equals sign (<code>=</code>) is called an <em>equation</em>. The left
-hand side of the <code>=</code> is the expression we are defining, and
-the right hand side of the <code>=</code> is the definition.</p>
-<p>In general a definition (of a function or constant) consists of an
-optional <em>type annotation</em> and one or more <em>equations</em></p>
+<p>这是一个常量 <code>phi</code> 的定义，
+并附带<em>类型注释</em>（也称为<em>类型签名</em>） <code>phi :: Double</code>。
+类型注释意味着 <code>phi</code> 拥有类型 <code>Double</code>。
+带有等号（<code>=</code>）的一行被称为<em>方程</em>。
+<code>=</code> 的左侧是我们所定义的表达式，
+<code>=</code> 的右侧是其定义。</p>
+<p>一般而言，一个（函数或是常量的）定义由一个可选的<em>类型注释</em>
+与一个或多个方程构成</p>
 <div class="sourceCode" id="cb24"><pre
 class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ot">polynomial ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>polynomial x <span class="ot">=</span> x<span class="op">^</span><span class="dv">2</span> <span class="op">-</span> x <span class="op">-</span> <span class="dv">1</span></span></code></pre></div>
-<p>This is the definition of a function called <code>polynomial</code>.
-It has a type annotation and an equation. Note how an equation for a
-function differs from the equation of a constant by the presence of a
-parameter <code>x</code> left of the <code>=</code> sign. Note also that
-<code>^</code> is the power operator in Haskell, not bitwise xor like in
-many other languages.</p>
+<p>这是一个叫做 <code>polynomial</code> 函数的定义。
+它拥有一个类型注释与一个方程。
+注意一个函数方程与一个常量方程的不同之处在于 <code>=</code> 符号左侧存在参数 <code>x</code> 。
+也请注意 <code>^</code> 在 Haskell 中是指数符号，而非像大多语言那样用作按位异或符号。</p>
 <div class="sourceCode" id="cb25"><pre
 class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>f x <span class="ot">=</span> polynomial (polynomial x)</span></code></pre></div>
-<p>This is the definition of a function called <code>f</code>. Note the
-lack of type annotation. What is the type of <code>f</code>?</p>
+<p>这是一个叫做 <code>f</code> 函数的定义。
+注意这里缺少类型注释。 <code>f</code> 的类型是什么？</p>
 <div class="sourceCode" id="cb26"><pre
 class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>main <span class="ot">=</span> <span class="kw">do</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span> (polynomial phi)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span> (f phi)</span></code></pre></div>
-<p>This is a description of what happens when you run the program. It
-uses do-syntax and the IO Monad. We’ll get back to those in part 2 of
-the course.</p>
+<p>这是一个关于当你运行程序时发生了什么的描述。
+它使用了 do-语法与 IO 单子。
+我们将于第二部分探讨它们。</p>
 <h2 data-number="1.8" id="working-with-examples"><span
 class="header-section-number">1.8</span> Working with Examples</h2>
 <p>When you see an example definition like this</p>
@@ -1748,7 +1736,7 @@ href="https://haskell.mooc.fi/status">My status page</a>. It’s useful to
 glance at the model solutions, they might show you a technique you’ve
 missed!</p>
 <h2 data-number="1.14" id="exercises"><span
-class="header-section-number">1.14</span> Exercises</h2>
+class="header-section-number">1.14</span> 练习</h2>
 <ul>
 <li><a
 href="https://github.com/moocfi/haskell-mooc/blob/master/exercises/Set1.hs">Set1</a></li>

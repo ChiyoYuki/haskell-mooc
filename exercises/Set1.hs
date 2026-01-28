@@ -1,71 +1,68 @@
--- Welcome to the first exercise set of the Haskell Mooc! Edit this
--- file according to the instructions, and check your answers with
+-- 欢迎来到 Haskell Mooc 的第一个练习集！Edit this
+-- 根据指示编辑本文件，并通过
 --
 --   stack runhaskell Set1Test.hs
 --
--- You can also play around with your answers in GHCi with
+-- 验证你的答案
+-- 你也可以在 GHCi 中通过
 --
 --   stack ghci Set1.hs
 --
--- This set contains exercises on
---   * defining functions
---   * basic expressions
---   * pattern matching
---   * recursion
+-- 尝试你的答案
+--
+-- 本习题集包含如下练习
+--   * 定义函数
+--   * 基础表达式
+--   * 模式匹配
+--   * 递归
 
 module Set1 where
 
 import Mooc.Todo
 
 ------------------------------------------------------------------------------
--- Ex 1: define variables one and two. They should have type Int and
--- values 1 and 2, respectively.
+-- Ex 1: 定义变量 one 和 two 。它们应当具有 Int 类型，并分别拥有值 1 和 2 。
 
 
 ------------------------------------------------------------------------------
--- Ex 2: define the function double of type Integer->Integer. Double
--- should take one argument and return it multiplied by two.
+-- Ex 2: 定义函数 double ，其类型为 Integer->Integer 。
+-- double 应当接受一个参数并返回其二倍。
 
 double :: Integer -> Integer
 double x = todo
 
 ------------------------------------------------------------------------------
--- Ex 3: define the function quadruple that uses the function double
--- from the previous exercise to return its argument multiplied by
--- four.
+-- Ex 3: 使用先前练习中的函数 double 来定义函数 quadruple ，返回其参数的四倍。
 
 quadruple :: Integer -> Integer
 quadruple x = todo
 
 ------------------------------------------------------------------------------
--- Ex 4: define the function distance. It should take four arguments of
--- type Double: x1, y1, x2, and y2 and return the (euclidean) distance
--- between points (x1,y1) and (x2,y2).
+-- Ex 4: 定义函数 distance 。它接受四个类型为 Double 的参数：
+-- x1, y1, x2, y2 并返回点 (x1,y1) 与 (x2,y2) 间的（欧氏）距离。
 --
--- Give distance a type signature, i.e. distance :: something.
+-- 为 distance 提供一个类型签名，比如 distance :: something 。
 --
--- PS. if you can't remember how the distance is computed, the formula is:
---   square root of ((x distance) squared + (y distance) squared)
+-- 注：如果你不记得距离如何计算，其公式为：
+--  ((x 方向距离) 的平方 + (y 方向距离) 的平方) 开二次方根
 --
--- Examples:
+-- 实例：
 --   distance 0 0 1 1  ==>  1.4142135...
 --   distance 1 1 4 5  ==>  5.0
 
 distance = todo
 
 ------------------------------------------------------------------------------
--- Ex 5: define the function eeny that returns "eeny" for even inputs
--- and "meeny" for odd inputs.
+-- Ex 5: 定义函数 eeny ，对于偶数输入返回 "eeny" 而对奇数输入返回 "meeny" 。
 --
--- Ps. have a look at the built in function "even"
+-- 注：看看内建函数 "even"
 
 eeny :: Integer -> String
 eeny = todo
 
 ------------------------------------------------------------------------------
--- Ex 6: here's the function checkPassword from the course material.
--- Modify it so that it accepts two passwords, "swordfish" and
--- "mellon".
+-- Ex 6: 这是课程资料中的 checkPassword 函数。
+-- 修改至使其接受两个密码： "swordfish" 与 "mellon" 。
 
 checkPassword :: String -> String
 checkPassword password = if password == "swordfish"
@@ -73,56 +70,53 @@ checkPassword password = if password == "swordfish"
                          else "ACCESS DENIED!"
 
 ------------------------------------------------------------------------------
--- Ex 7: A postal service prices packages the following way.
--- Packages that weigh up to 500 grams cost 250 credits.
--- Packages over 500 and up to 5000 grams cost 300 credit + 1 credit per gram.
--- Packages over 5000 grams cost a constant 6000 credits.
+-- Ex 7: 一个邮政服务按照如下方式为包裹计费。
+-- 不超过 500 克的包裹收费 250 分。
+-- 超过 500 克但不超过 5000 克的包裹收费 300 分 + 1 分/克。
+-- 超过 5000 克的包裹固定收费 6000 分。
 --
--- Write a function postagePrice that takes the weight of a package
--- in grams, and returns the cost in credits.
+-- 编写函数 postagePrice ，其接受包裹克数作为参数，并返回其费用（单位为分）。
 
 postagePrice :: Int -> Int
 postagePrice = todo
 
 ------------------------------------------------------------------------------
--- Ex 8: define a function isZero that returns True if it is given an
--- Integer that is 0, and False otherwise. Give isZero a type signature.
+-- Ex 8: 定义函数 isZero ，当输入参数为 0 时返回 True ，其余情况返回 False 。
+-- 为 isZero 提供一个类型签名。
 --
--- Use pattern matching! Don't use comparisons!
+-- 使用模式匹配！不要使用比较！
 --
--- Ps. remember, the type of booleans in haskell is Bool
+-- 注：记住， haskell 中布尔值的类型是 Bool
 
 isZero = todo
 
 ------------------------------------------------------------------------------
--- Ex 9: implement using recursion a function sumTo such that
+-- Ex 9: 使用递归实现函数 sumTo 使得
 --   sumTo n
--- computes the sum 1+2+...+n
+-- 计算 1+2+...+n 的和
 
 sumTo :: Integer -> Integer
 sumTo = todo
 
 ------------------------------------------------------------------------------
--- Ex 10: power n k should compute n to the power k (i.e. n^k)
--- Use recursion.
--- There's no need to handle negative values of k.
+-- Ex 10: power n k 应当计算 n 的 k 次方 (即为 n^k)
+-- 使用递归。
+-- 无需处理 k 为负值的情形。
 
 power :: Integer -> Integer -> Integer
 power = todo
 
 ------------------------------------------------------------------------------
--- Ex 11: ilog3 n should be the number of times you can divide given
--- number by three (rounding down) before you get 0.
+-- Ex 11: ilog3 n 应为你可以将提供的数字归零前除以三（向下取整）的次数。
 --
--- For example, ilog3 20 ==> 3 since
---   20/3 = 6.66 (gets rounded down to 6)
+-- 例如， ilog3 20 ==> 3 因为
+--   20/3 = 6.66 (向下取整为 6)
 --   6/3 = 2
---   2/3 = 0.666 (gets rounded down to 0)
+--   2/3 = 0.666 (向下取整为 0)
 --
--- Use recursion to define ilog3. Use the function "div" for integer
--- division. It rounds down for you.
+-- 使用递归定义 ilog3 。 使用函数 "div" 整除，它已进行下取整。
 --
--- More examples:
+-- 更多实例：
 --   ilog3 2 ==> 1
 --   ilog3 7 ==> 2
 
